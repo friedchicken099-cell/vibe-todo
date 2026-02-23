@@ -1,136 +1,139 @@
-/* Reset and layout */
-body, html, #root {
+/* Global */
+body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
-  font-family: 'Sans-Serif', Arial, Helvetica;
-  background-color: #1e1e1e; /* dark grey background */
+  background-color: #2e2e2e; /* dark grey background */
+  font-family: 'Sans-Serif';
+  color: white;
 }
 
-/* Main app container */
+/* App container */
 .app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
-  justify-content: center; /* center horizontally */
-  padding: 2rem;
-  box-sizing: border-box;
-  min-height: 100%;
-  width: 100%;
   flex-direction: column;
   align-items: center;
+}
+
+/* Add Task input at top */
+.input-top {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-top input,
+.input-top select,
+.input-top button {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-family: sans-serif;
+}
+
+.input-top input {
+  flex: 1;
+  background-color: #444; /* slightly darker than columns */
+  color: white;
+}
+
+.input-top select {
+  background-color: #555;
+  color: white;
+}
+
+.input-top button {
+  background-color: #666;
+  color: white;
+  cursor: pointer;
 }
 
 /* Columns container */
 .columns-container {
   display: flex;
-  gap: 2rem;
+  justify-content: center; /* horizontally center */
+  gap: 20px;
+  flex-wrap: wrap; /* wrap columns on small screens */
   width: 100%;
-  max-width: 1200px; /* center and constrain width */
+  box-sizing: border-box;
 }
 
-/* Each column styling */
+/* Individual columns */
 .column {
-  flex: 1;
-  background: #2c2c2c; /* slightly lighter than background */
-  padding: 1.5rem;
+  background-color: #555; /* slightly lighter than dark grey */
+  padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-  color: #fff;
+  flex: 1 1 250px; /* responsive min 250px */
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
 /* Column headers */
 .column h2 {
   text-align: center;
-  margin-bottom: 1rem;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
   text-transform: uppercase;
 }
 
-/* Input form at top spanning columns */
-.input-top {
+/* Todo list items */
+.todo-item {
   display: flex;
-  gap: 8px;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background-color: #3a3a3a; /* slightly darker than columns */
-  border-radius: 8px;
-  width: 100%;
-  max-width: 1200px;
-  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: #666;
+  transition: background-color 0.3s, transform 0.5s;
 }
 
-/* Input, select, button styling */
-.input-top input {
-  flex: 1;
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #555;
-  background-color: #2f2f2f;
-  color: #fff;
-}
-.input-top select {
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #555;
-  background-color: #2f2f2f;
-  color: #fff;
-}
-.input-top button {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: none;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-}
-/* Custom checkbox check mark */
-label input:checked + span {
-  background-color: #4caf50; /* green when done */
-  border-color: #4caf50;
-}
-li {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 1s ease;
-}
-/* Shake animation for completed tasks */
-@keyframes shake {
-  0% { transform: rotate(0deg); }
-  20% { transform: rotate(-5deg); }
-  40% { transform: rotate(5deg); }
-  60% { transform: rotate(-5deg); }
-  80% { transform: rotate(5deg); }
-  100% { transform: rotate(0deg); }
+/* Task completed */
+.todo-item.completed {
+  background-color: #2e7d32; /* green */
+  animation: shake 0.3s ease; /* faster, smaller shake */
 }
 
-/* Apply the animation when .shaking class is added */
-.shaking {
-  animation: shake 0.5s ease;
-}
-/* Subtle, fast shake for completed tasks */
+/* Shake animation */
 @keyframes shake {
   0% { transform: rotate(0deg); }
-  20% { transform: rotate(-2deg); }
-  40% { transform: rotate(2deg); }
-  60% { transform: rotate(-2deg); }
-  80% { transform: rotate(2deg); }
-  100% { transform: rotate(0deg); }
-}
-
-/* Apply the animation when .shaking class is added */
-.shaking {
-  animation: shake 0.25s ease; /* faster than before */
-}
-/* Ultra-subtle, fast shake for completed tasks */
-@keyframes shake {
-  0% { transform: rotate(0deg); }
-  15% { transform: rotate(-1deg); }
-  30% { transform: rotate(1deg); }
-  45% { transform: rotate(-1deg); }
-  60% { transform: rotate(1deg); }
+  25% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
   75% { transform: rotate(-1deg); }
   100% { transform: rotate(0deg); }
 }
 
-/* Apply the animation when .shaking class is added */
-.shaking {
-  animation: shake 0.15s ease; /* super fast */
+/* Checkbox style */
+.todo-item input[type="checkbox"] {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  accent-color: #555; /* same as column */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .columns-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  .input-top {
+    flex-direction: column;
+  }
+
+  .input-top input,
+  .input-top select,
+  .input-top button {
+    width: 100%;
+  }
 }
