@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #2e2e2e; /* dark grey background */
-  font-family: 'Sans-Serif';
+  font-family: sans-serif; /* back to simple sans-serif */
   color: white;
 }
 
@@ -89,21 +89,27 @@ body {
   padding: 8px;
   border-radius: 6px;
   background-color: #666;
-  transition: background-color 0.3s, transform 0.5s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 /* Task completed */
 .todo-item.completed {
   background-color: #2e7d32; /* green */
-  animation: shake 0.3s ease; /* faster, smaller shake */
+  animation: shake 0.5s ease; /* bring shake back */
 }
 
-/* Shake animation */
+/* Shake animation: small and quick */
 @keyframes shake {
   0% { transform: rotate(0deg); }
-  25% { transform: rotate(-1deg); }
-  50% { transform: rotate(1deg); }
-  75% { transform: rotate(-1deg); }
+  10% { transform: rotate(-2deg); }
+  20% { transform: rotate(2deg); }
+  30% { transform: rotate(-2deg); }
+  40% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+  60% { transform: rotate(2deg); }
+  70% { transform: rotate(-2deg); }
+  80% { transform: rotate(2deg); }
+  90% { transform: rotate(-2deg); }
   100% { transform: rotate(0deg); }
 }
 
@@ -112,7 +118,7 @@ body {
   margin-right: 8px;
   width: 20px;
   height: 20px;
-  accent-color: #555; /* same as column */
+  accent-color: #555; /* same as column background */
 }
 
 /* Mobile responsiveness */
