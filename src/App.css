@@ -40,3 +40,49 @@
 .read-the-docs {
   color: #888;
 }
+/* src/App.css */
+
+/* Columns container */
+.columns-container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  gap: 20px;               /* space between columns */
+  flex-wrap: wrap;         /* wrap on small screens */
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Individual columns */
+.column {
+  background-color: #555; /* slightly lighter than dark grey */
+  padding: 15px;
+  border-radius: 8px;
+  min-width: 250px;
+  max-width: 400px;
+  flex: 1;
+}
+
+/* Stack columns vertically on mobile */
+@media (max-width: 600px) {
+  .columns-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .column {
+    width: 90%;
+  }
+}
+
+/* Center Add Task input */
+#add-task-input {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 600px;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #eee; /* slightly darker white */
+  font-family: sans-serif;
+  margin-top: 20px;
+}

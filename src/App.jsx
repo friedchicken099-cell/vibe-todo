@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { useState } from 'react';
 import useTodos from './hooks/useTodos';
 import TodoList from './components/TodoList';
@@ -38,11 +39,11 @@ export default function App() {
       {/* Columns */}
       <div className="columns-container">
         <div className="column">
-          <h2>Business</h2>
+          <h2>BUSINESS</h2>
           <TodoList todos={businessTodos} toggleDone={toggleDone} removeTodo={removeTodo} />
         </div>
         <div className="column">
-          <h2>Personal</h2>
+          <h2>PERSONAL</h2>
           <TodoList todos={personalTodos} toggleDone={toggleDone} removeTodo={removeTodo} />
         </div>
       </div>
