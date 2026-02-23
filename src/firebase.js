@@ -1,9 +1,7 @@
-// Import the functions you need from the SDKs you need
+// src/firebase.js
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore } from "firebase/firestore"; // <-- add this
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCgaF2MkKF4yj2fWLI1JOBFEIk1mWUF8GM",
   authDomain: "vibe-todo-f04e2.firebaseapp.com",
@@ -15,3 +13,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Initialize Firestore and export it
+export const db = getFirestore(app);
