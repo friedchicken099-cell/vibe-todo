@@ -19,15 +19,16 @@ body {
 
 /* Add Task input at top */
 #add-task-input {
-  width: 90%;
-  max-width: 600px;
-  padding: 10px;
-  border-radius: 6px;
+  width: 100%;             /* full width of container */
+  max-width: 400px;        /* same max-width as columns */
+  padding: 15px;           /* match column padding */
+  border-radius: 8px;      /* same as columns */
   border: none;
-  background-color: #444; /* slightly darker than columns */
+  background-color: #444;  /* slightly darker than columns */
   color: white;
   font-family: sans-serif;
   margin-bottom: 20px;
+  box-sizing: border-box;  /* include padding in width */
 }
 
 /* Columns container */
@@ -44,7 +45,7 @@ body {
   background-color: #555; /* slightly lighter than dark grey */
   padding: 15px;
   border-radius: 8px;
-  flex: 1 1 250px; /* responsive: grow and shrink, min 250px */
+  flex: 1 1 250px;       /* responsive: grow and shrink, min 250px */
   max-width: 400px;
   box-sizing: border-box; /* include padding in width */
 }
@@ -102,10 +103,7 @@ body {
     width: 90%;
     max-width: 90%;
   }
-}
-/* Make Add Task input match column width */
-#add-task-input {
-  width: 100%;
-  max-width: 400px; /* same as column max-width */
-  box-sizing: border-box; /* ensures padding doesn’t break width */
+  #add-task-input {
+    width: 90%;
+  }
 }
