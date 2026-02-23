@@ -1,7 +1,8 @@
 // src/firebase.js
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"; // <-- add this
+import { getFirestore } from "firebase/firestore";
 
+// Your Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCgaF2MkKF4yj2fWLI1JOBFEIk1mWUF8GM",
   authDomain: "vibe-todo-f04e2.firebaseapp.com",
@@ -14,5 +15,5 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firestore and export it
+// Initialize Firestore
 export const db = getFirestore(app);
