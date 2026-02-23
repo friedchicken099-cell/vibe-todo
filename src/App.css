@@ -1,7 +1,142 @@
-/* ========================
-   Logo & root stuff (keep)
-   ======================== */
+/* ==========================
+   Global App Container
+   ========================== */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #2c2c2c; /* dark grey background */
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  font-family: 'Sans-Serif';
+}
 
+/* ==========================
+   Input at Top
+   ========================== */
+.input-top {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 95%; /* nearly full width on mobile */
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.input-top input,
+.input-top select,
+.input-top button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+.input-top input {
+  flex: 1 1 150px;
+  background-color: #444; /* slightly darker white */
+  color: white;
+}
+
+.input-top select {
+  background-color: #444;
+  color: white;
+}
+
+.input-top button {
+  background-color: #666;
+  color: white;
+  cursor: pointer;
+}
+
+/* ==========================
+   Columns Container
+   ========================== */
+.columns-container {
+  display: flex;
+  justify-content: center; /* center columns horizontally */
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px; /* limit max width on desktop */
+}
+
+/* Individual column */
+.column {
+  flex: 1 1 300px;
+  background-color: #3c3c3c; /* slightly lighter than dark grey */
+  padding: 15px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  min-width: 250px;
+}
+
+.column h2 {
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* ==========================
+   Todos
+   ========================== */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #555;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.todo-item.completed {
+  background-color: #4caf50; /* green when completed */
+  animation: shake 0.5s ease;
+}
+
+.todo-item input[type="checkbox"] {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  accent-color: #2c2c2c; /* same as app background */
+}
+
+/* Shake animation for completed todos */
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-3deg); }
+  40% { transform: rotate(3deg); }
+  60% { transform: rotate(-3deg); }
+  80% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ==========================
+   Stack columns vertically on mobile
+   ========================== */
+@media (max-width: 700px) {
+  .columns-container {
+    flex-direction: column;
+    align-items: center; /* center each column under input */
+  }
+
+  .column {
+    width: 95%; /* nearly full width on mobile */
+    min-width: unset;
+  }
+}
+
+/* ==========================
+   Logo & Card Styles (kept from original)
+   ========================== */
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -25,12 +160,8 @@
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -45,140 +176,4 @@
 
 .read-the-docs {
   color: #888;
-}
-
-/* ========================
-   Todo App Layout
-   ======================== */
-
-/* General app container */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* center horizontally */
-  padding: 20px;
-  background-color: #2c2c2c; /* dark grey background */
-  min-height: 100vh;
-  font-family: 'Sans-Serif';
-  box-sizing: border-box;
-}
-
-/* Input at top */
-.input-top {
-  display: flex;
-  flex-wrap: wrap; /* wrap on small screens */
-  justify-content: center;
-  margin-bottom: 20px;
-  gap: 10px;
-  width: 100%;
-  max-width: 600px; /* limits width on desktop */
-}
-
-.input-top input,
-.input-top select,
-.input-top button {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  font-size: 16px;
-}
-
-.input-top input {
-  flex: 1 1 200px;
-  background-color: #444; /* slightly darker than white */
-  color: white;
-}
-
-.input-top select {
-  background-color: #444;
-  color: white;
-}
-
-.input-top button {
-  background-color: #666;
-  color: white;
-  cursor: pointer;
-}
-
-/* Columns container */
-.columns-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* allows columns to stack on small screens */
-  gap: 20px;
-  width: 100%;
-  max-width: 900px;
-}
-
-/* Individual column */
-.column {
-  flex: 1 1 300px; /* grow, shrink, basis */
-  background-color: #3c3c3c; /* slightly lighter than background */
-  padding: 15px;
-  border-radius: 8px;
-  min-width: 250px; /* prevents shrinking too small */
-  box-sizing: border-box;
-}
-
-.column h2 {
-  text-align: center;
-  font-size: 20px;
-  color: white;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-
-/* Todo items container */
-.column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Individual task */
-.column li {
-  display: flex;
-  align-items: center;
-  background-color: #555;
-  margin-bottom: 10px;
-  padding: 8px;
-  border-radius: 5px;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-/* Task completed */
-.column li.completed {
-  background-color: #00b894; /* green when done */
-  animation: shake 0.3s ease; /* quick shake */
-}
-
-/* Quick shake animation */
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-2px); }
-  50% { transform: translateX(2px); }
-  75% { transform: translateX(-2px); }
-  100% { transform: translateX(0); }
-}
-
-/* Checkboxes */
-.column input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-  accent-color: #2c2c2c; /* match background */
-}
-
-/* Responsive adjustments */
-@media (max-width: 700px) {
-  .columns-container {
-    flex-direction: column; /* stack columns on small screens */
-    align-items: center;
-  }
-
-  .column {
-    width: 90%;
-    min-width: unset;
-  }
 }
