@@ -103,3 +103,9 @@ body {
     max-width: 90%;
   }
 }
+/* Make Add Task input match column width */
+#add-task-input {
+  width: 100%;
+  max-width: 400px; /* same as column max-width */
+  box-sizing: border-box; /* ensures padding doesn’t break width */
+}
